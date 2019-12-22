@@ -23,7 +23,7 @@ RSpec.describe User, type: :model do
 
     describe "Review Model Relationships" do
       it { should have_many(:reviews) }
-      # it { should have_many(:orders) }
+      it { should have_many(:orders) }
     end
   end
 end
