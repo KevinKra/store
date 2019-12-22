@@ -19,5 +19,6 @@ RSpec.describe Item, type: :model do
     # item_orders m-t-m relationship
     it { should have_many(:item_orders) }
     it { should have_many(:orders).through(:item_orders) }
+    it { should belong_to(:merchant) }
   end
 end
