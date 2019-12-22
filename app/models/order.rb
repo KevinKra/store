@@ -6,4 +6,6 @@ class Order < ApplicationRecord
                         :zip
 
   belongs_to :user
+  has_many :items, through: :item_orders
+  has_many :item_orders
 end
