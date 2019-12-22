@@ -8,8 +8,15 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
   </head>
-
   <body>
+    <nav class="main-nav" id="primary-navigation">
+      <%= link_to 'Home', "/" %>
+      <%= link_to 'All Items', "/items" %>
+      <%= link_to 'Merchants', "/merchants" %>
+      <%= link_to 'Cart: 0', "/cart" %>
+      <%= link_to 'Login', "/login" %>
+      <%= link_to 'Register', "/register" %>
+    </nav>
     <%= yield %>
   </body>
 </html>
