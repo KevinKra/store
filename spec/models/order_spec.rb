@@ -15,5 +15,9 @@ RSpec.describe Order, type: :model do
 
   describe "Order Model Relationships" do
     it { should belong_to(:user) }
+
+    # item_orders m-t-m relationship
+    it { should have_many(:item_orders) }
+    it { should have_many(:items).through(:item_orders) }
   end
 end

@@ -15,7 +15,9 @@ RSpec.describe Item, type: :model do
 
   describe "Item Model Relationships" do
     it { should have_many(:reviews) }
-    # add merchant relation
-    # add item_orders relation
+
+    # item_orders m-t-m relationship
+    it { should have_many(:item_orders) }
+    it { should have_many(:orders).through(:item_orders) }
   end
 end
