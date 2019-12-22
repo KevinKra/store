@@ -21,5 +21,9 @@ RSpec.describe User, type: :model do
       it { should validate_uniqueness_of(:email) }
     end
 
+    describe "Review Model Relationships" do
+      it { should have_many(:reviews) }
+      # it { should have_many(:orders) }
+    end
   end
 end
