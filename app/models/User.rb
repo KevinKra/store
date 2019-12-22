@@ -13,6 +13,7 @@ class User < ApplicationRecord
   validates :username, :email, uniqueness: true
 
   has_many :reviews
+  has_many :orders
 
   has_secure_password
 end
