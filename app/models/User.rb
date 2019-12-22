@@ -15,5 +15,8 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :orders
 
+  has_many :merchant_users
+  has_many :merchants, through: :merchant_users
+
   has_secure_password
 end

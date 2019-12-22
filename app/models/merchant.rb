@@ -6,4 +6,6 @@ class Merchant < ApplicationRecord
                         :zip
 
   has_many :items
+  has_many :merchant_users
+  has_many :users, through: :merchant_users
 end
