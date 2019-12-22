@@ -1,0 +1,16 @@
+language: ruby
+rvm:
+- 2.5.1
+- 1.9.3
+- jruby-19mode
+- rbx-2
+
+before_install:
+  - echo "BEFORE INSTALL START"
+  - gem install bundler
+  - echo "BEFORE INSTALL END"
+
+script:
+ — bundle exec rails db:create
+ — bundle exec rails db:migrate RAILS_ENV=test
+ — bundle exec rspec
