@@ -14,5 +14,8 @@ RSpec.describe Merchant, type: :model do
 
   describe "Merchant Model Relationships" do
     it { should have_many(:items) }
+
+    it { should have_many(:merchant_users) }
+    it { should have_many(:users).through(:merchant_users) }
   end
 end

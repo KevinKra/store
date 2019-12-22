@@ -24,6 +24,9 @@ RSpec.describe User, type: :model do
     describe "Review Model Relationships" do
       it { should have_many(:reviews) }
       it { should have_many(:orders) }
+
+      it { should have_many(:merchant_users) }
+      it { should have_many(:merchants).through(:merchant_users) }
     end
   end
 end
