@@ -31,22 +31,29 @@ RSpec.describe "Session #new" do
     end
 
     context "the user has invalid credentials" do
-
-      xit "does not log them in" do
-
+      after(:each) do
+        expect(current_path).to eq("/login")
+        within("#main-flash") do
+          expect(page).to have_content("Incorrect Username or Password.")
+        end
       end
 
-      xit "provides a flash message stating missing information" do
+      it "does not log them in with an incorrect username" do
+        within("#login-form") do
+          fill_in :username, with: user.username
+          fill_in :password, with: "IncorrectPassword"
+          click_on "Login"
+        end
+      end
 
+      it "does not log them in with an incorrect password" do
+        within("#login-form") do
+          fill_in :username, with: "WrongUsername"
+          fill_in :password, with: user.password
+          click_on "Login"
+        end
       end
     end
-
-    context "the user does not exist" do
-
-    end
-
-    context "all fields not entered" do
-
-    end
+    
   end
 end
