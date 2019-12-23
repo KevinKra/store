@@ -14,8 +14,12 @@
       <%= link_to 'All Items', "/items" %>
       <%= link_to 'Merchants', "/merchants" %>
       <%= link_to 'Cart: 0', "/cart" %>
-      <%= link_to 'Login', "/login" %>
-      <%= link_to 'Register', "/register" %>
+      <% if current_user %>
+        <%= link_to 'Logout', "/logout" %>
+      <% else %>
+        <%= link_to 'Login', "/login" %>
+        <%= link_to 'Register', "/register" %>
+      <% end %>
     </nav>
     <% flash.each do |name, msg| %>
       <div class= "<%=name%>-flash" id="main-flash">

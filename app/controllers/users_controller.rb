@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     if new_user.save
       flash[:success] = "Welcome, #{new_user.username}."
       session[:user_id] = new_user.id
-      redirect_to "/"
+      redirect_to "/profile"
     else
       flash[:error] = new_user.errors.full_messages.to_sentence
       redirect_to "/register"
