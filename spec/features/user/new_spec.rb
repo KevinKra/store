@@ -29,10 +29,11 @@ RSpec.describe "Users #new", type: :feature do
 
     it "should be able to register an account" do
       click_on "Register Account"
-      expect(current_path).to eq("/")
+      expect(current_path).to eq("/profile")
       within("#main-flash") do
         expect(page).to have_content("Welcome, #{user[:username] }")
       end
+      expect(page).to have_content("User Profile Page")
     end
   end
 
