@@ -4,8 +4,8 @@ class UsersController < ApplicationController
 
   def create
     new_user = User.new(user_params)
-    if new_user.save
-      flash[:success] = "Welcome, #{new_user.username}."
+    if new_user.save && new_user.password == new_user.password_confirmation
+      flash[:success] = "Welcome, #{new_user.username}. You are now registered and logged in."
       session[:user_id] = new_user.id
       redirect_to "/profile"
     else
@@ -30,6 +30,7 @@ class UsersController < ApplicationController
         :zip,
         :email,
         :password,
+        :password_confirmation,
         :role
       )
     end
